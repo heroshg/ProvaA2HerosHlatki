@@ -32,19 +32,19 @@ namespace ProvaA2HerosHlatkiAPI.Models
             {
                 ImpostoIrrf = 0;
             }
-            else if (SalarioBruto > 1903.98 && SalarioBruto <= 2826.65)
+            else if (SalarioBruto > 1903.99 && SalarioBruto <= 2826.65)
             {
-                ImpostoIrrf = SalarioBruto * 0.75;
+                ImpostoIrrf = 142.80;
             }
-            else if (SalarioBruto > 2826.65 && SalarioBruto <= 3751.05)
+            else if (SalarioBruto > 2826.66 && SalarioBruto <= 3751.05)
             {
-                ImpostoIrrf = SalarioBruto * 0.15;
+                ImpostoIrrf = 354.80;
             }
             else if (SalarioBruto > 3751.05 && SalarioBruto <= 4664.68)
             {
-                ImpostoIrrf = SalarioBruto * 0.22;
+                ImpostoIrrf = 636.13;
             }
-            else if (SalarioBruto > 4664.68) ImpostoIrrf = 27.5;
+            else if (SalarioBruto > 4664.68) ImpostoIrrf = 869.36;
             if (SalarioBruto <= 1693.72)
             {
                 ImpostoInss = SalarioBruto * 0.8;
@@ -58,7 +58,7 @@ namespace ProvaA2HerosHlatkiAPI.Models
                 ImpostoInss = SalarioBruto * 0.11;
             }
             else if (SalarioBruto > 5645.80) ImpostoInss = 621.03;
-            ImpostoFgts = SalarioBruto * 0.8;
+            ImpostoFgts = SalarioBruto * 0.08;
             SalarioLiquido = SalarioBruto - ImpostoIrrf - ImpostoInss;
             FuncionarioId = funcionarioId;
         }

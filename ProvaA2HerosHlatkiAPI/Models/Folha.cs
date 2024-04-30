@@ -17,7 +17,7 @@ namespace ProvaA2HerosHlatkiAPI.Models
         public double ImpostoInss { get; set; }
         public double ImpostoFgts { get; set; }
         public double SalarioLiquido { get; set; }
-        [JsonIgnore]
+        
         public Funcionario? Funcionario { get; set; }
         public int FuncionarioId { get; set; }
 

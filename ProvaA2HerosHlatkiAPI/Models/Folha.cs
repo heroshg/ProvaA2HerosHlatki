@@ -5,23 +5,7 @@ namespace ProvaA2HerosHlatkiAPI.Models
 {
     public class Folha
     {
-        public int Id { get; set; }
-        public double Valor { get; set; }
-        public int Quantidade { get; set; }
-        [Range(1, 12, ErrorMessage = "O mês deve estar entre Janeiro 1 e Dezembro 12")]
-        public int Mes { get; set; }
-        [Range(0, 2024, ErrorMessage = "O ano deve ser de 0 até 2024 que é o ano atual.")]
-        public int Ano { get; set; }
-        public double SalarioBruto { get; set; }
-        public double ImpostoIrrf { get; set; }
-        public double ImpostoInss { get; set; }
-        public double ImpostoFgts { get; set; }
-        public double SalarioLiquido { get; set; }
-        
-        public Funcionario? Funcionario { get; set; }
-        public int FuncionarioId { get; set; }
-
-        public Folha( double valor, int quantidade, int mes, int ano, int funcionarioId)
+        public Folha(double valor, int quantidade, int mes, int ano, int funcionarioId)
         {
             Valor = valor;
             Quantidade = quantidade;
@@ -60,8 +44,27 @@ namespace ProvaA2HerosHlatkiAPI.Models
             else if (SalarioBruto > 5645.80) ImpostoInss = 621.03;
             ImpostoFgts = SalarioBruto * 0.08;
             SalarioLiquido = SalarioBruto - ImpostoIrrf - ImpostoInss;
+           
             FuncionarioId = funcionarioId;
         }
+
+        public int Id { get; set; }
+        public double Valor { get; set; }
+        public int Quantidade { get; set; }
+        [Range(1, 12, ErrorMessage = "O mês deve estar entre Janeiro 1 e Dezembro 12")]
+        public int Mes { get; set; }
+        [Range(0, 2024, ErrorMessage = "O ano deve ser de 0 até 2024 que é o ano atual.")]
+        public int Ano { get; set; }
+        public double SalarioBruto { get; set; }
+        public double ImpostoIrrf { get; set; }
+        public double ImpostoInss { get; set; }
+        public double ImpostoFgts { get; set; }
+        public double SalarioLiquido { get; set; }
+        public int FuncionarioId { get; set; }
+        public Funcionario? Funcionario { get; set; }
+        
+
+        
 
         
 

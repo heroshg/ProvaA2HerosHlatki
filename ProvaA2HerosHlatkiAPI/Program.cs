@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProvaA2HerosHlatkiAPI.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>();
+builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options => options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 var app = builder.Build();
 
 
@@ -61,7 +64,7 @@ app.MapGet("folha/listar", ([FromServices] AppDbContext context) =>
 {
     if(context.Folhas.Any())
     {
-        return Results.Ok(context.Folhas.ToList());
+        return Results.Ok(context.Folhas.Include(f => f.Funcionario).ToList());
     }
     return Results.NotFound("Não existem folhas na tabela");
 });

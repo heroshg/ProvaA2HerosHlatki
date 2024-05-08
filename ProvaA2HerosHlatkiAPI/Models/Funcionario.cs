@@ -16,6 +16,6 @@ namespace ProvaA2HerosHlatkiAPI.Models
         [MinLength(11, ErrorMessage = "O campo deve conter exatamente 14 caracteres")]
         public string? CPF { get; set; }
         [JsonIgnore]
-        public List<Folha>? Folhas { get; set; }
+        public ICollection<Folha>? Folhas { get; }  = new List<Folha>();
     }
 }
